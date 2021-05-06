@@ -1,0 +1,9 @@
+#pip install open cv
+import cv2
+face_cascade = cv2.CascadeClassifier('add the path of xml file here')
+im=cv2.imread('add the path of test image here')
+faces = face_cascade.detectMultiScale(im,1.1, 4)
+for (x, y, w, h) in faces: 
+  cv2.rectangle(im, (x, y), (x+w, y+h), (0, 0, 0), 2)
+cv2.imwrite("detected.png", im) 
+print('Successfully saved')
